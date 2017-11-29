@@ -103,3 +103,5 @@ ENV/
 *.xml
 
 Aigis/Draw System/\.idea/
+
+Tools/plotting/python/MplDecorator/\.idea/

@@ -66,49 +66,57 @@ z = np.cos(x)
 def text_plot():
     fig,ax = plt.subplots()
     # fig, ax = plt.subplots(figsize=(11,11))
-    ax.plot(x,y)
-    ax.plot(x,z)
+    line_style = MplDecorator.linestyles()
+    next(line_style)
+    ax.plot(x,y,label='y', **next(line_style))
+    ax.plot(x,z, label='z', **next(line_style))
     ax.set_title("With Decorator")
     ax.set_xlabel('Some x')
     ax.set_ylabel('Some y')
+    ax.legend(loc='best')
     fig.savefig("With Decorator.eps")
 
 text_plot()
 os.system('epstopdf "With Decorator.eps"')
 ```
 
-![with decorator](https://user-images.githubusercontent.com/28139045/33359714-337f13f6-d485-11e7-8135-d92626f2c5c0.jpeg)
+![with decorator](https://user-images.githubusercontent.com/28139045/33397655-29ba6880-d501-11e7-9068-ad3b96f1981d.png)
 
 ```python
 def text_plot2():
     #sns.lmplot(x="Time", y="value", hue="variable", data=dat)
     fig,ax = plt.subplots()
-    ax.plot(x,y)
-    ax.plot(x,z)
+    line_style = MplDecorator.linestyles()
+    next(line_style)
+    ax.plot(x,y,label='y', **next(line_style))
+    ax.plot(x,z, label='z', **next(line_style))
     ax.set_title("No Decorator")
     ax.set_xlabel('Some x')
     ax.set_ylabel('Some y')
+    ax.legend(loc='best')
     fig.savefig("After Decorator.eps")
 
 text_plot2()
 os.system('epstopdf "After Decorator.eps"')
 ```
-![No decorator](https://user-images.githubusercontent.com/28139045/33359715-34498690-d485-11e7-88b2-ad9cce86fe73.jpeg)
-
+![no decorator](https://user-images.githubusercontent.com/28139045/33397652-29557146-d501-11e7-9967-7fefa71fd639.png)
 
 ```python
 @MplDecorator.latex_decorator
 def text_plot_larger():
     fig,ax = plt.subplots(figsize=(6,6))
     # fig, ax = plt.subplots(figsize=(11,11))
-    ax.plot(x,y)
-    ax.plot(x,z)
+    line_style = MplDecorator.linestyles()
+    next(line_style)
+    ax.plot(x,y,label='y', **next(line_style))
+    ax.plot(x,z, label='z', **next(line_style))
     ax.set_title("Larger With Decorator")
     ax.set_xlabel('Some x')
     ax.set_ylabel('Some y')
+    ax.legend(loc='best')
     fig.savefig("With Decorator Larger.eps")
 
 text_plot_larger()
 os.system('epstopdf "With Decorator Larger.eps"')
 ```
-![with decorator larger](https://user-images.githubusercontent.com/28139045/33359716-35522236-d485-11e7-8d41-94f6b39ba85a.jpeg)
+![with decorator larger](https://user-images.githubusercontent.com/28139045/33397653-299bd9f6-d501-11e7-8151-af068484866f.png)
