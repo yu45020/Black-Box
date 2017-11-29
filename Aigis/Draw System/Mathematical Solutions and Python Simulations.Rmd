@@ -1,0 +1,76 @@
+---
+title: "Mathematical Solutions and Python Simulations"
+author: "Yu"
+date: "November 13, 2017"
+output:
+  pdf_document: default
+  html_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# System Explanations
+
+Methods: 
+
+1) Old: Exp(Black) = 3%; 
+
+2) New Reset Threshold: If the 32 consecutively draws are none black, the 33th is black 
+
+3) New Fixed Threshold: For every 33 draws, the 33th draw is black regardless the outcomes of previous draws. 
+
+# Closed Form Solutions
+
+## 1) Old Method
+
+Bionomial Distribution, so $Exp = np$, and $SD = \sqrt(np(1-p))$.
+```{r}
+Exp = 0.03
+SD = sqrt(0.03*0.97)
+SD
+```
+
+## 2) New Reset Threshold
+
+Consider the expected draws needed to get the next black is
+$\sum_{1}^{32} 0.97^{i}*0.03*i + 0.97*1*33$.
+
+```{r}
+i = seq(1,32)
+draws_32 = (0.97^i)*0.03*i
+draws_33 = 0.97^32*1*33
+```
+Deeded draws are
+```{r}
+sum(draws_32,draws_33)
+```
+Thus, the expectation is 
+```{r}
+1/sum(draws_32,draws_33)
+```
+
+## 3) New Fixed Threshold
+
+Suppose there are 33 draws. The first 32 draws have $Exp(black) = 0.03$, and the 33th draw's Exp is 1. The $Var = E(x^2) - E(x)$, where $E(x^2) = 32*p*(1-p+1)$ .
+```{r}
+Exp = ( 32*0.03 + 1 )/33
+SD = sqrt( (32*0.03*(0.97+1)-Exp^2)/33 )
+```
+Thus, the results are 
+```{r}
+Exp
+SD
+```
+
+## Python Simulation 
+For $10^{7}$ Draws, the result is 
+
+```{python}
+import os
+os.system('python draw_system_test.py')
+```
+
