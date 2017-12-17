@@ -19,15 +19,20 @@ def split_csvs(filename, out_folder=None, lines_per_block=10 ** 6):
     """
     # make subfolder
     path, file = os.path.split(filename)
+
     if not path:
         path = '.'
+
     if out_folder is None:
         out_folder = path + "/" + file.split(".")[0] + "_split/"
-    file_counter = 1
+
     if not os.path.exists(out_folder):
         os.makedirs(out_folder)
+
     dat = pd.read_csv(filename, chunksize=lines_per_block, iterator=True)
+    
     # dat.get_chunk()
+    file_counter = 1
     for dat_chunk in dat:
         print("Processing the {} split".format(file_counter))
         out_name = out_folder + file.split(".")[0] + "_{}".format(file_counter) + ".csv"
