@@ -5,6 +5,8 @@ Small tools to make research process easier.
 ### Life is short
 * [MplDecorator](https://github.com/yu45020/MplDecorator) Customize Matplotlib parameters to create publication quality plots for  LaTex use. 
 
+* [Aigis WidgetBox](https://github.com/yu45020/Black-Box/tree/master/Aigis/WidgetBox) Simple GUI by Tkinter. More features are under development.
+
 *  [Timeit Decorator](https://github.com/yu45020/Black-Box/blob/master/Tools/Python/TimeitDecorator.py): Store, display, format, and write run times for functions.
 
 * [Clean LaTex aux](https://github.com/yu45020/Black-Box/blob/master/Tools/Python/latex_clear_aux.py) Automatically clean or hide LaTex aux while compiling. [Setup in TexStudio](https://user-images.githubusercontent.com/28139045/34075823-ba1e856c-e287-11e7-9001-34ff57864f7f.JPG)
