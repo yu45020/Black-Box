@@ -12,7 +12,6 @@ Small tools to make research process easier.
 * [Clean LaTex aux](https://github.com/yu45020/Black-Box/blob/master/Tools/Python/latex_clear_aux.py) Automatically clean or hide LaTex aux while compiling. [Setup in TexStudio](https://user-images.githubusercontent.com/28139045/34075823-ba1e856c-e287-11e7-9001-34ff57864f7f.JPG)
 
 
-* [Splite CSV](https://github.com/yu45020/Black-Box/blob/master/Tools/Python/spliteCSV.py) Splite large CSV file into several smaller files. Data are loaded by chunks (default is 150 MB) to maintain memory usage. It is used with RevoscaleR to transform large dataset (say, several GB CSV). 
 
 
 ### R
