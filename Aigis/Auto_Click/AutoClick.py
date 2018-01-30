@@ -4,7 +4,6 @@ from pywinauto.findwindows import find_windows
 import sys
 import numpy as np
 import os
-
 from win32api import GetSystemMetrics
 
 
@@ -43,7 +42,7 @@ class AutoClick:
         img.save(self.screen_name)
         self.screen_img = cv2.imread(self.screen_name, 0)  # load image in gray scale
 
-    def detect_icon_loc(self, icon_file, loc_confidence=0.8, enlarge_icon=True):
+    def detect_icon_loc(self, icon_file, loc_confidence=0.8, enlarge_icon=False):
         icon_temp = cv2.imread(self.ImgPath + icon_file, 0)
         icon_w, icon_h = icon_temp.shape[::-1]
 
@@ -85,7 +84,7 @@ class AutoClick:
 
         return best_loc
 
-    def reset_window_size(self, width, height):
+    def set_window_size(self, width, height):
         self.dlg.move_window(x=self.screen_w - width, y=0, width=width, height=height)
 
     def get_win_size_width(self):
@@ -99,18 +98,23 @@ class AutoClick:
         self.dlg.click_input(coords=loc)
 
     def simulate_click(self, loc):
-        self.dlg.click(coords=loc)
+        self.dlg.set_focus()
+        self.dlg.click(coords=loc, double=True)
 
     def drag_mouse(self, press_coord, release_coord):
         self.dlg.drag_mouse_input(src=press_coord, dst=release_coord, absolute=False)
 
+    def simulate_drag_mouse(self, press_coord, release_coord):
+        self.dlg.set_focus()
+        self.dlg.drag_mouse(press_coord=press_coord, release_coord=release_coord)
+
     @staticmethod
-    def write_setting(file_name, object):
-        return np.save(file_name, object)
+    def write_setting(file_name, setting):
+        return np.save(file_name, setting)
 
     @staticmethod
     def load_setting(file_name):
-        settings = np.load(file_name)
-        if isinstance(settings, dict):
-            settings = settings.items()
-        return settings
+        setting = np.load(file_name)
+        if isinstance(setting, dict):
+            setting = setting.items()
+        return setting
