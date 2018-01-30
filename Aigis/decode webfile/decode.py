@@ -11,7 +11,7 @@ find the link in that file. Copy it to the browser address and download it.
 5. Start this program. It will parse the link to the image and use request library to download it.
     If you want to use socks5 during connection, write the following in 'socks5.txt' under the same folder:
             socks5://username:password@socksurl:port(1080,or 80, etc)
-            38.132.115.192 (proxy ip address to verify connection setup)
+            00.000.000.000 (proxy ip address to verify connection setup)
     The download_files.py will check the ip address. If it doesn't match with the socks5' ip, it will stop for safety.
 """
 import download_files
