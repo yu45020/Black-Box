@@ -6,7 +6,7 @@ import numpy as np
 from Build_Pipeline import *
 
 
-dat = pd.read_csv("./CP2/housing.csv")
+dat = pd.read_csv("housing.csv")
 dat['median_income_group'] = np.ceil(dat.median_income/1.5)
 
 splitter = StratifiedShuffleSplit(n_splits=1, test_size=0.9,random_state=1)
