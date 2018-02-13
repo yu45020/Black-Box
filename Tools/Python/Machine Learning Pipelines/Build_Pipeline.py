@@ -459,12 +459,3 @@ classifier_metrics = [
     'neg_log_loss',
 ]
 
-
-
-if __name__ == '__main__':
-    print("Configure pipelines before use")
-    import numpy as np
-    a = np.array([1,2,4,10,20,15])
-    w = [0.4, 0.45, 0.5, 0.7, 0.9, 0.8]
-    np.ma.average(a,weights=w)
-    sum(a*w)/sum(w)
