@@ -19,4 +19,3 @@ Small tools to make research process easier.
 ### R
 * [encodedummy](https://github.com/yu45020/encodedummy) Rely on data.table to fast encode non-numeric variables. It currently has two functions: create dummy columns for each unique variable; onehot encode all non-numeric columns and create code book for encoding new data. This package is used in processing data for Ridge/Lasso regressions in glmnet package or random forest/ PCA/ K-Means etc, which only accept numeric matrces.  
 
-* [Add Recessions in ggplots](https://github.com/yu45020/Black-Box/tree/master/Tools/R/plotting%20recession) From [R-bloggers post](https://www.r-bloggers.com/use-geom_rect-to-add-recession-bars-to-your-time-series-plots-rstats-ggplot/). Add US recession data (csv) and a self-defined plotting function.
