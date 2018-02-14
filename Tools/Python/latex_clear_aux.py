@@ -40,7 +40,7 @@ def del_aux(file_name):
             subprocess.run(['attrib', "+h", file_name + ".synctex.gz"])  # enable go to source in view pdf
         else:  # assume linux system
             [subprocess.run(['rm', x]) for x in file]
-            if os.isfile(file_name + ".synctex.gz"):
+            if os.path.isfile(file_name + ".synctex.gz"):
                 os.rename(file_name + ".synctex.gz", "." + file_name + ".synctex.gz")
 
 
@@ -57,11 +57,11 @@ if __name__ == '__main__':
     file_name = parser.parse_args().file_name
 
     pdflatex_args = "-synctex=1 -interaction=nonstopmode"
-    subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'],timeout=10)
+    subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'],timeout=5)
 
     if os.path.isfile(file_name + ".bcf"):
-        subprocess.run(["biber.exe", file_name + ".bcf"],timeout=10)
-        subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'],timeout=10)
+        subprocess.run(["biber.exe", file_name + ".bcf"],timeout=5)
+    subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'],timeout=5)
 
     del_aux(file_name)
 
