@@ -47,21 +47,21 @@ def del_aux(file_name):
 def not_folder(file_name):
     return not os.path.isdir(file_name)
 
+
 def not_pdf_tex_gz(file_name):
     return not (file_name.endswith('.pdf') or file_name.endswith('.tex') or file_name.endswith('.gz'))
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("file_name", type=str)
     file_name = parser.parse_args().file_name
 
     pdflatex_args = "-synctex=1 -interaction=nonstopmode"
-    subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'],timeout=5)
+    subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'])
 
     if os.path.isfile(file_name + ".bcf"):
-        subprocess.run(["biber.exe", file_name + ".bcf"],timeout=5)
-    subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'],timeout=5)
+        subprocess.run(["biber.exe", file_name + ".bcf"], timeout=5)
+    subprocess.run(["pdflatex.exe", pdflatex_args, file_name + '.tex'])
 
     del_aux(file_name)
-

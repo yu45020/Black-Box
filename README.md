@@ -3,11 +3,12 @@
 Small tools to make research process easier.
 
 ### Life is short
+* [Neural Net](https://github.com/yu45020/Black-Box/tree/master/Tools/Python/Neural%20Net)
+Neural network from scratch (numpy only). 
+
 * [ML Pipelines](https://github.com/yu45020/Black-Box/tree/master/Tools/Python/Machine%20Learning%20Pipelines) (dev) Template for machine learning pipeline on data processing and model selection. It can be easily customized by configuring functions for data process, then it runs several models with grid search & cross validation to find the best model. An ensemble method using all fine tuned models is under development.
 
 * [MplDecorator](https://github.com/yu45020/MplDecorator) Customize Matplotlib parameters to create publication quality plots for  LaTex use. 
-
-* [Aigis WidgetBox](https://github.com/yu45020/Black-Box/tree/master/Aigis/WidgetBox) Simple GUI by Tkinter. More features are under development.
 
 *  [Timeit Decorator](https://github.com/yu45020/Black-Box/blob/master/Tools/Python/TimeitDecorator.py): Store, display, format, and write run times for functions.
 
